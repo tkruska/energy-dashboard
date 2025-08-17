@@ -1,6 +1,9 @@
 import requests
 import json
 from pathlib import Path
+from logging_config import setup_logger
+
+logger = setup_logger(__name__)
 
 
 class EnergyDataFetcher:
@@ -15,15 +18,15 @@ class EnergyDataFetcher:
         try:
             response = requests.get(url, params=params)
         except Exception as e:
-            print(f"Network error: {e}")
+            logger.error(f"Network error: {e}")
             return None
 
         if response.status_code == 200:
             return response.json()
         else:
-            raise Exception(
-                f"API request failed with status code: {response.status_code}"
-            )
+            error_msg = f"API request failed for {country} on {date} with status code: {response.status_code}"
+            logger.error
+            raise Exception(error_msg)
 
     def save_raw_data(self, country: str, date: str, json_data: dict) -> Path:
         filepath = Path(self.dir / f"{country}_{date}.json")
@@ -35,7 +38,7 @@ class EnergyDataFetcher:
     def fetch_and_save(self, country: str, date: str):
         response = self.fetch_daily_data(country=country, date=date)
         filepath = self.save_raw_data(country=country, date=date, json_data=response)
-        print(f"Data saved successfully in {filepath}")
+        logger.info(f"Data saved successfully in {filepath}")
 
 
 if __name__ == "__main__":
