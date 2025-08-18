@@ -4,4 +4,11 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["pandas>=2.3.1", "psycopg>=3.2.9", "requests>=2.32.4"]
+dependencies = [
+    "pandas>=2.3.1",
+    "psycopg>=3.2.9",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.4",
+    "sqlalchemy>=2.0.43",
+    "sqlfluff>=3.4.2",
+]
