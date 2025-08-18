@@ -11,6 +11,8 @@ wheels/
 
 # Directories
 data
+.ruff_cache
 
 # Files
 explore.ipynb
+.env
