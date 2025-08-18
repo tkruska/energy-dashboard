@@ -53,6 +53,12 @@ class DatabaseConnector:
     def query(self):
         pass
 
+    def count_rows(self):
+        with self.get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT COUNT(*) FROM energy.metrics")
+            return cursor.fetchone()[0]
+
     def create_schema(self):
         try:
             with open("schema.sql", "r") as f:

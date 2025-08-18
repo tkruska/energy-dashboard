@@ -39,6 +39,7 @@ class EnergyDataFetcher:
         response = self.fetch_daily_data(country=country, date=date)
         filepath = self.save_raw_data(country=country, date=date, json_data=response)
         logger.info(f"Data saved successfully in {filepath}")
+        return filepath
 
 
 if __name__ == "__main__":

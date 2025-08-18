@@ -27,6 +27,7 @@ class EnergyDataProcessor:
 
         list_of_dicts = []
         list_of_returned_metrics = []
+        country = Path(json_path).stem.split("_")[0]
 
         for prod_type in json_data["production_types"]:
             if prod_type["name"] in self.list_of_metric_types:
@@ -34,11 +35,10 @@ class EnergyDataProcessor:
                 for i, val in enumerate(prod_type["data"]):
                     list_of_dicts.append(
                         {
-                            "timestamp": datetime.fromtimestamp(
-                                json_data["unix_seconds"][i]
-                            ),
+                            "ts": datetime.fromtimestamp(json_data["unix_seconds"][i]),
                             "metric_type": prod_type["name"],
-                            "value": val,
+                            "measurement": val,
+                            "country": country,
                         }
                     )
 
