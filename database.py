@@ -29,14 +29,14 @@ class DatabaseConnector:
             conn = psycopg.connect(
                 f"host={self.host} dbname={self.database} user={self.user} password={self.password}"
             )
-            logger.info(f"Connected to database {self.database}.")
+            logger.debug(f"Connected to database {self.database}.")
             yield conn
         except psycopg.Error as e:
             logger.error(f"Database connection failed: {e}")
             raise
         finally:
             conn.close()
-            logger.info(f"Connection to {self.database} has been closed.")
+            logger.debug(f"Connection to {self.database} has been closed.")
 
     def insert_dataframe(self, data: pd.DataFrame):
         connection_string = f"postgresql+psycopg://{self.user}:{self.password}@{self.host}/{self.database}"
