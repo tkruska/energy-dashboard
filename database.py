@@ -25,6 +25,7 @@ class DatabaseConnector:
 
     @contextmanager
     def get_connection(self):
+        conn = None
         try:
             conn = psycopg.connect(
                 f"host={self.host} dbname={self.database} user={self.user} password={self.password}"
@@ -35,8 +36,9 @@ class DatabaseConnector:
             logger.error(f"Database connection failed: {e}")
             raise
         finally:
-            conn.close()
-            logger.debug(f"Connection to {self.database} has been closed.")
+            if conn is not None:
+                conn.close()
+                logger.debug(f"Connection to {self.database} has been closed.")
 
     def insert_dataframe(self, data: pd.DataFrame):
         connection_string = f"postgresql+psycopg://{self.user}:{self.password}@{self.host}/{self.database}"

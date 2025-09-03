@@ -28,11 +28,9 @@ def test_full_pipeline(countries: list, date: str):
             logger.error(f"Failed to process {country}: {e}")
             continue
 
-    # Check if number of rows match
-    expected_rows = 24 * 4 * 3 * len(countries)  # 24h * 4 readings per hour * 3 metrics
-    # some countries only have one datapoint per hour, so there might be some discrepancies
-    rows_in_db = db.count_rows()
-    print(f"Expected: {expected_rows} | Database: {rows_in_db}")
+    logger.info(
+        "Pipeline has finished. Connect to the database to see the stored records."
+    )
 
 
 if __name__ == "__main__":
