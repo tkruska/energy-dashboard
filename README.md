@@ -1,24 +1,48 @@
 # Energy-Dashboard
 
-Personal ETL and visualization project. Work in progress.
+Personal ETL and visualization project showcasing data pipeline development with Python, PostgreSQL, and Docker. Work in progress.
+
+## What this project does
+- Fetches energy data from an external API
+- Processes and transforms the data using Python
+- Stores results in a PostgreSQL database
+- Demonstrates containerized ETL pipeline architecture
 
 ## Getting started
-You will need docker and ideally a database viewer like [DBeaver](https://dbeaver.io/) or [pgAdmin](https://www.pgadmin.org/) (to look at the created records for yourself)
-1. Clone the repo
-2. `cp .env.example .env` (try skipping that step at first)
-3. `docker compose up --build`
-    * Wait until you see the container `etl_pipeline` has finished operation
-    * You can also go through the comprehensive logs the pipeline provides
-4. In your database viewer, connect to the database using the credentials found in `.env`
-5. After all has been done, stop the running containers using 
-    * `ctrl+c` followed by `ctrl+d` on windows
-    * Only god knows the shortcut on mac
 
-![Here should be a gif of tumbleweed](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXA0NGo0ODAxODM3Z2toMXlsem1rYzAxOWFuYzJuYTV5ZmQ2b2ticSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d8lUKXD00IXSw/giphy.gif)
+### Prerequisites
+- Docker and Docker Compose
+- Database viewer like [DBeaver](https://dbeaver.io/) or [pgAdmin](https://www.pgadmin.org/) (optional, to explore the data)
+
+### Running the project
+1. Clone the repository
+   ```bash
+   git clone <your-repo-url>
+   cd energy-dashboard
+   ```
+
+2. Start the application
+   ```bash
+   docker compose up --build
+   ```
+   - This builds both containers and runs the ETL pipeline
+   - Wait until the `etl_pipeline` container finishes execution
+   - Check the comprehensive logs to see the pipeline progress
+
+3. Connect to the database to view results
+   - **Host:** `localhost`
+   - **Port:** `5433`
+   - **Database:** `energy_db`
+   - **Username:** `postgres`
+   - **Password:** `postgres`
+
+4. Stop the containers
+    * `ctrl+c` followed by `ctrl+d` on Windows
+    * `ctrl+c` on MacOS
 
 ## Planned features
-- Adding Airflow integration
-- Adding interactive data visualizations
+- Airflow integration for workflow orchestration
+- Interactive data visualizations with Streamlit/Dash
 
 ## Data Attribution
 

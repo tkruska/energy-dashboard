@@ -17,3 +17,4 @@ db
 # Files
 explore.ipynb
 .env
+.env.example
