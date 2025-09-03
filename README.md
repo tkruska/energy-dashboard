@@ -37,8 +37,13 @@ Personal ETL and visualization project showcasing data pipeline development with
    - **Password:** `postgres`
 
 4. Stop the containers
-    * `ctrl+c` followed by `ctrl+d` on Windows
-    * `ctrl+c` on MacOS
+    - `ctrl+c` followed by `ctrl+d` on Windows
+    - `ctrl+c` on MacOS
+
+5. Clean up
+    ```bash
+    docker compose down
+    ```
 
 ## Planned features
 - Airflow integration for workflow orchestration
