@@ -17,7 +17,7 @@ Personal ETL and visualization project showcasing data pipeline development with
 ### Running the project
 1. Clone the repository
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/tkruska/energy-dashboard.git
    cd energy-dashboard
    ```
 
