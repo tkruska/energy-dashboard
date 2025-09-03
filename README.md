@@ -31,7 +31,7 @@ Personal ETL and visualization project showcasing data pipeline development with
 
 3. Connect to the database to view results
    - **Host:** `localhost`
-   - **Port:** `5433`
+   - **Port:** `5432`
    - **Database:** `energy_db`
    - **Username:** `postgres`
    - **Password:** `postgres`
