@@ -3,7 +3,7 @@
 Personal ETL and visualization project. Work in progress.
 
 ## Getting started
-You will need docker and ideally a database viewer like DBeaver or pgAdmin (to look at the created records for yourself)
+You will need docker and ideally a database viewer like [DBeaver](https://dbeaver.io/) or [pgAdmin](https://www.pgadmin.org/) (to look at the created records for yourself)
 1. Clone the repo
 2. `cp .env.example .env` (try skipping that step at first)
 3. `docker compose up --build`
